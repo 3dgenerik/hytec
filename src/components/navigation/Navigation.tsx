@@ -23,6 +23,7 @@ const variants = {
       type: "tween",
     },
   },
+
 };
 
 export const Navigation = () => {
@@ -31,6 +32,7 @@ export const Navigation = () => {
   const [menu, setMenu] = useState<boolean>(false);
   const [btnName, setBtnName] = useState<string>("Home");
   const [animate, setAnimate] = useState<boolean>(false);
+
 
   const [windowWidth, setWindowWidth] = useState(0);
   const [windowHeight, setWindowHeight] = useState(0);
@@ -56,11 +58,12 @@ export const Navigation = () => {
 
   useEffect(() => {
     resizeWindow();
-    window.addEventListener("resize", resizeWindow);
-    return () => window.removeEventListener("resize", resizeWindow);
+    window.addEventListener('resize', resizeWindow);
+    return () => window.removeEventListener('resize', resizeWindow);
   }, []);
 
   console.log(menu);
+
 
   return (
     <nav>
@@ -101,6 +104,7 @@ export const Navigation = () => {
           ref={ref}
           style={{ fontWeight: "600" }}
           className=" text-secondary list-unstyled d-flex flex-column flex-sm-row gap-4 gap-sm-3 px-3"
+
         >
           <li
             onClick={(e) => onLiBtnClick(e)}
@@ -128,6 +132,7 @@ export const Navigation = () => {
             value={2}
           >
             About us
+
           </li>
           <li
             onClick={(e) => onLiBtnClick(e)}
@@ -143,6 +148,7 @@ export const Navigation = () => {
       <div
         className={`mover fw-bold text-secondary shadow-sm `}
         style={{
+
           width: `${
             ref.current &&
             ref.current.children[btn].getBoundingClientRect().width
@@ -162,6 +168,7 @@ export const Navigation = () => {
         {/* <div className={`mover-text ${animate ? 'fade-in' : 'fade-out'}`}> */}
         <div className={`mover-text`}>{btnName}</div>
       </div>
+
     </nav>
   );
 };
